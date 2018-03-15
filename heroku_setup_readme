@@ -1,0 +1,44 @@
+Setting up on heroku and general tips/troubleshooting
+
+Install:
+-install heroku CLI on machine
+-heroku create
+-make sure node_modules and smenatic are in gitignore on the git repo
+-heroku config:set NPM_CONFIG_PRODUCTION=false   (https://devcenter.heroku.com/articles/troubleshooting-node-deploys)
+-heroku buildpacks:add heroku/nodejs
+-heroku buildpacks:add heroku/python   (must be in this order!)
+-git push heroku master
+*-https://devcenter.heroku.com/articles/django-app-configuration (for how to set up postgres on heroku with django)
+-heroku run python manage.py migrate
+-heroku run python > initialize the db or make modifications to it (it's in python 3 so bindings are a bit different, also TODO: make premade scripts for db management (deletion, reset, etc) and upload to heroku)
+-heroku open (goes to the website)
+
+TIPS:
+-need procfile, requirements.txt, and package.json to push to heroku and build (pip install and npm install run automatically when using git push heroku master)
+- remove options on webpack in frontend/package.json or else webpack will hang, keep flags for development mode though
+-make sure URLs are properly configured in .js scripts to pint to heroku app and not local machine
+
+
+TODO:
+-make database management scripts
+-make production and dev repos
+
+
+
+
+LINKS:
+https://devcenter.heroku.com/articles/heroku-postgresql#connecting-in-python
+https://devcenter.heroku.com/articles/django-app-configuration
+https://devcenter.heroku.com/articles/getting-started-with-python#deploy-the-app
+
+https://blog.heroku.com/deploying-react-with-zero-configuration
+https://devcenter.heroku.com/articles/nodejs-support#specifying-a-node-js-version
+https://devcenter.heroku.com/articles/python-runtimes#activation-1
+
+https://devcenter.heroku.com/articles/buildpacks#officially-supported-buildpacks
+https://devcenter.heroku.com/articles/buildpacks#detection-failure
+
+https://devcenter.heroku.com/articles/django-assets
+
+
+https://github.com/SamSamskies/django-webpack-heroku-example

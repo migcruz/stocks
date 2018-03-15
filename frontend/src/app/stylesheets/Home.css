@@ -1,0 +1,50 @@
+.Home {
+  padding-top: 40px;
+  text-align: center;
+}
+
+.Home-logo {
+  animation: Home-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.Home-header {
+  background-color: #222;
+  height: 200px;
+  padding: 20px;
+  color: white;
+}
+
+.Home-intro {
+  font-size: small;
+  font-weight: normal;
+  padding: 20px;
+}
+
+.Home-header .heading {
+  font-weight: bold;
+}
+
+.Home-grid {
+  padding: 20px;
+}
+
+.Home-background {
+
+  background:
+    -webkit-linear-gradient(45deg, hsla(37, 3%, 20%, 1) 0%, hsla(37, 3%, 20%, 0) 70%),
+    -webkit-linear-gradient(315deg, hsla(55, 4%, 16%, 1) 10%, hsla(55, 4%, 16%, 0) 80%),
+    -webkit-linear-gradient(225deg, hsla(83, 0%, 22%, 1) 10%, hsla(83, 0%, 22%, 0) 80%),
+    -webkit-linear-gradient(135deg, hsla(248, 12%, 24%, 1) 100%, hsla(248, 12%, 24%, 0) 70%);
+  background:
+    linear-gradient(45deg, hsla(37, 3%, 20%, 1) 0%, hsla(37, 3%, 20%, 0) 70%),
+    linear-gradient(135deg, hsla(55, 4%, 16%, 1) 10%, hsla(55, 4%, 16%, 0) 80%),
+    linear-gradient(225deg, hsla(83, 0%, 22%, 1) 10%, hsla(83, 0%, 22%, 0) 80%),
+    linear-gradient(315deg, hsla(248, 12%, 24%, 1) 100%, hsla(248, 12%, 24%, 0) 70%);
+}
+
+@keyframes Home-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+

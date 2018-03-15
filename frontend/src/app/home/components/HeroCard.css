@@ -1,0 +1,10 @@
+.HeroCard-avatar {
+    position: relative;
+    /* width: 235px;
+    height: 272px; */
+}
+
+.HeroCard-card {
+    position: relative;
+    width: 236px;
+}
