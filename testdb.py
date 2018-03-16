@@ -7,7 +7,9 @@ import django
 django.setup()
 
 
-from heroes.models import Hero, Ability
+# from heroes.models import Hero, Ability
+
+from stocks.models import Company
 
 
 
@@ -63,27 +65,50 @@ from heroes.models import Hero, Ability
 
 
 ######## Abilities ######
-x = 0
-with open('drf_hero_abilities.json') as filepath:
- 	drf_hero_abilities = json.load(filepath)
+# x = 0
+# with open('drf_hero_abilities.json') as filepath:
+#  	drf_hero_abilities = json.load(filepath)
 
-heros = Hero.objects.all()
-for hero in heros:
-    for key, val in drf_hero_abilities.items():
-        if hero.hero_id == val["hero_id"]:
-            p = Ability.objects.create(
-                created_order = x,
-                hero = hero,
-                ability_name = val["ability_name"],
-                heroid = val["hero_id"],
-                ability_info = val["ability_info"]
-            )
-            x += 1
+# heros = Hero.objects.all()
+# for hero in heros:
+#     for key, val in drf_hero_abilities.items():
+#         if hero.hero_id == val["hero_id"]:
+#             p = Ability.objects.create(
+#                 created_order = x,
+#                 hero = hero,
+#                 ability_name = val["ability_name"],
+#                 heroid = val["hero_id"],
+#                 ability_info = val["ability_info"]
+#             )
+#             x += 1
 
 # abilities = Ability.objects.all()
 # print(abilities[0].ability_info)
 
 # abilities = Ability.objects.all().delete()
+
+
+
+######## Companies ######
+with open('tests/companies/AAPL.json') as filepath:
+ 	company_json = json.load(filepath)
+
+p = Company.objects.create(
+    ticker = company_json["ticker"],
+    name = company_json["name"],
+    marketcap = company_json["marketcap"],
+    open_price = company_json["open_price"],
+    close_price = company_json["close_price"],
+    financials = company_json["financials"],
+    time_series_daily = company_json["time_series_daily"]
+)
+
+
+# companies = Company.objects.all().delete()
+# companis = Company.objects.all()
+# print(companis, len(companis))
+
+
 
 
 
