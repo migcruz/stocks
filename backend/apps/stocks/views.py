@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from .serializers import CompanySerializer
+from .serializers import CompanySerializer, CompanyCompactSerializer
 from .models import Company
 # Create your views here.
 
@@ -9,6 +9,14 @@ class CompanyViewSet(viewsets.ModelViewSet):
     """
     queryset = Company.objects.all()
     serializer_class = CompanySerializer
+    lookup_field = 'ticker'
+
+class CompanyCompactViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows Companies to be viewed or edited.
+    """
+    queryset = Company.objects.all()
+    serializer_class = CompanyCompactSerializer
     lookup_field = 'ticker'
 
 

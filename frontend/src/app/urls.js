@@ -19,8 +19,8 @@ const urls = (
 					<Route exact path="/app" component={Home}/>
 					<Route path="/app/lol" component={HoverableComponent}/>
 					<Route path="/app/kek" component={FetchDemo}/>
-					<Route path="/app/hero" component={HeroPage}/>
-					<Route path="/app/:hero" component={HeroPage}/>
+					{/*<Route path="/app/hero" component={HeroPage}/>
+					<Route path="/app/:hero" component={HeroPage}/>*/}
 				</Switch>
 			</div>
 		</ReactCSSTransitionReplace>

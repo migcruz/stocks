@@ -4,6 +4,8 @@ from .models import Company
 from rest_framework.relations import HyperlinkedIdentityField
 from rest_framework.reverse import reverse
 
+from collections import OrderedDict
+
 # class ParameterisedHyperlinkedIdentityField(HyperlinkedIdentityField):
 #     """
 #     Represents the instance, or a property on the instance, using hyperlinking.
@@ -53,10 +55,38 @@ class CompanySerializer(serializers.HyperlinkedModelSerializer):
         view_name='company-detail',
         lookup_field='ticker'
     )
+
+    time_series_daily = serializers.SerializerMethodField()
+    
     class Meta:
         model = Company
-        fields = ('id', 'ticker', 'name', 'marketcap', 'open_price', 'close_price', 'time_series_daily', 'financials')
-        # lookup_field = 'hero_id'
-        # extra_kwargs = {
-        #     'url': {'lookup_field': 'hero_id'}
-        # }
+        fields = ('id', 'ticker', 'name', 'marketcap', 'open_price', 'close_price', 'financials', 'url', 'time_series_daily')
+    
+    def get_time_series_daily(self, obj):
+        return OrderedDict(sorted(obj.time_series_daily.items(), reverse=True))
+
+    
+class CompanyCompactSerializer(serializers.HyperlinkedModelSerializer):
+    #abilities = AbilitySerializer(many=True, read_only=True)
+
+    url = serializers.HyperlinkedIdentityField(
+        view_name='company-detail',
+        lookup_field='ticker'
+    )
+
+    time_series_daily = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Company
+        fields = ('id', 'ticker', 'name', 'marketcap', 'open_price', 'close_price', 'financials', 'url', 'time_series_daily')
+    
+    def get_time_series_daily(self, obj):
+
+        keys = sorted((obj.time_series_daily).keys(), reverse=True)
+        del keys[100:]
+        compact_time_series = OrderedDict()
+        for key in keys:
+            compact_time_series[key] = obj.time_series_daily[key]
+
+
+        return compact_time_series

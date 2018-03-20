@@ -14796,13 +14796,13 @@ table.text-center th {
 	display: table; /* prevents the wrapper from being bigger than picture and taking the whole column*/
 	position: relative;
 	overflow: hidden;
-	background: rgba(0, 0, 0, 1);  
+	/* background: rgba(0, 0, 0, 1);   */
 }
 
-.HeroGrid-hero:hover {
+/* .HeroGrid-hero:hover {
 	opacity: 0.5;
 	cursor: pointer;
-}
+} */
 
 .HeroGrid-name {
 	position: absolute;
@@ -14811,8 +14811,25 @@ table.text-center th {
 	left: 10px;
 	right: 0;
 	bottom: 0;
+	visibility: hidden;
+	opacity: 0;
 }
-.HeroCard-avatar {
+
+.HeroGrid-wrapper:hover {
+	cursor: pointer;
+}
+
+.HeroGrid-wrapper:hover .HeroGrid-name{
+	visibility: visible;
+	opacity: 1;
+	z-index: 9999;
+}
+
+.HeroGrid-wrapper:hover .HeroGrid-hero{
+	opacity: 0.5;
+}
+
+/* https://stackoverflow.com/questions/14263594/how-to-show-text-on-image-when-hovering */.HeroCard-avatar {
     position: relative;
     /* width: 235px;
     height: 272px; */

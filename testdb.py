@@ -90,8 +90,15 @@ from stocks.models import Company
 
 
 ######## Companies ######
+# companies = Company.objects.all()
+# print type(heros)
+# for hero in heros:
+#     print hero
+
+
+
 with open('tests/companies/AAPL.json') as filepath:
- 	company_json = json.load(filepath)
+ 	company_json = json.load(filepath, object_pairs_hook=OrderedDict)
 
 p = Company.objects.create(
     ticker = company_json["ticker"],
@@ -103,10 +110,22 @@ p = Company.objects.create(
     time_series_daily = company_json["time_series_daily"]
 )
 
+# p = Company.objects.create(
+#     ticker = "AAPL",
+#     name = "APPLE INC",
+#     marketcap = 0,
+#     open_price = 0.00,
+#     close_price = 0.00,
+#     financials = {},
+#     time_series_daily = {}
+# )
+
 
 # companies = Company.objects.all().delete()
-# companis = Company.objects.all()
-# print(companis, len(companis))
+companis = Company.objects.all()
+print(companis, len(companis))
+if len(companis) > 0:
+    print companis[0].time_series_daily
 
 
 

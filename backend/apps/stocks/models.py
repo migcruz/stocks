@@ -3,6 +3,8 @@ from __future__ import unicode_literals
 from django.db import models
 from django.contrib.postgres.fields import JSONField, ArrayField
 
+from django.core.serializers.json import DjangoJSONEncoder
+
 # Create your models here.
 # TO RESET DB FOLLOW THIS https://stackoverflow.com/questions/23755523/how-to-reset-migrations-in-django-1-7
 
@@ -19,14 +21,25 @@ from django.contrib.postgres.fields import JSONField, ArrayField
 class Company(models.Model):
     ticker = models.CharField(max_length=50, default="")
     name = models.CharField(max_length=50, default="")
-    marketcap = models.IntegerField(default=0)
+    marketcap = models.BigIntegerField(default=0)
     open_price = models.FloatField(default=0.0)
     close_price = models.FloatField(default=0.0)
-    time_series_daily = JSONField()
     financials = JSONField()
-
+    time_series_daily = JSONField(encoder=DjangoJSONEncoder)
     def __unicode__(self):
         return self.ticker
+
+# class CompanyCompact(models.Model):
+#     ticker = models.CharField(max_length=50, default="")
+#     name = models.CharField(max_length=50, default="")
+#     marketcap = models.BigIntegerField(default=0)
+#     open_price = models.FloatField(default=0.0)
+#     close_price = models.FloatField(default=0.0)
+#     time_series_daily = JSONField()
+#     financials = JSONField()
+
+#     def __unicode__(self):
+#         return self.ticker
 
 
 
