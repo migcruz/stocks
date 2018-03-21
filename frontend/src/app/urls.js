@@ -5,7 +5,7 @@ import RouteNotFound from "app/components/RouteNotFound";
 import Home from "app/home/Home"
 import FetchDemo from "app/home/components/FetchDemo";
 import HoverableComponent from "app/home/components/HoverableComponent";
-import HeroPage from "app/home/heropage/HeroPage"
+import CompanyPage from "app/home/companypage/CompanyPage"
 
 
 const urls = (
@@ -19,8 +19,8 @@ const urls = (
 					<Route exact path="/app" component={Home}/>
 					<Route path="/app/lol" component={HoverableComponent}/>
 					<Route path="/app/kek" component={FetchDemo}/>
-					{/*<Route path="/app/hero" component={HeroPage}/>
-					<Route path="/app/:hero" component={HeroPage}/>*/}
+					<Route path="/app/company" component={CompanyPage}/>
+					<Route path="/app/:company" component={CompanyPage}/>
 				</Switch>
 			</div>
 		</ReactCSSTransitionReplace>

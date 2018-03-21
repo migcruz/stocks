@@ -41,7 +41,7 @@ class HeroGrid extends React.Component {
                     <div className="HeroGrid-wrapper">
                         <div className="HeroGrid-name">
                             {/* <NavLink to={"/app/"+hero_icon_paths[i].value[0]} activeStyle={{fontWeight: 'bold',color: 'red'}}>{hero_icon_paths[i].key}</NavLink> */}
-                            <h5 as={NavLink} to={"/app/"+hero_icon_paths[i].value[0]}>{hero_icon_paths[i].key}</h5>
+                            <h5>{hero_icon_paths[i].key}</h5>
                         </div>
                         <div className="HeroGrid-hero">
                             <Image src={hero_icon_paths[i].value[1]} as={NavLink} to={"/app/"+hero_icon_paths[i].value[0]}/>

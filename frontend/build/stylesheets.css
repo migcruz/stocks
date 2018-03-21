@@ -14805,7 +14805,7 @@ table.text-center th {
 } */
 
 .HeroGrid-name {
-	position: absolute;
+	position: relative;
 	color: white;
 	top: 10px;
 	left: 10px;
