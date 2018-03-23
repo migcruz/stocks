@@ -39,7 +39,7 @@ class CompanyPage extends React.Component {
         var time_series_price;
         if (this.state.fetched){
             comp = null;
-            time_series_comp = <PriceChart time_series={this.company_json["time_series_daily"]} maxPoints={120}/>
+            time_series_comp = <PriceChart time_series={this.company_json["time_series_daily"]} maxPoints={80}/>
             time_series_price= null;
             
         }
@@ -54,7 +54,7 @@ class CompanyPage extends React.Component {
                 <div>
                     <h4>BAR</h4>
                 </div>
-                <div style={{width: '800px', margin: '10px auto 0'}}>
+                <div style={{width: '1600px', margin: '10px auto 0'}}>
                     {time_series_comp}
                 </div>
                 <div>
